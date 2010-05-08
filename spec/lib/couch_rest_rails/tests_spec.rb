@@ -14,7 +14,7 @@ describe CouchRestRails::Tests do
   describe '#setup' do
     
     it 'should always use the test environment' do
-      RAILS_ENV.should == CouchRestRails.test_environment
+      Rails.env.should == CouchRestRails.test_environment
     end
     
     it 'should delete, add, push views and load fixtures for the specified database' do
@@ -57,7 +57,7 @@ describe CouchRestRails::Tests do
   describe '#teardown' do
     
     it 'should always use the test environment' do
-      RAILS_ENV.should == CouchRestRails.test_environment
+      Rails.env.should == CouchRestRails.test_environment
     end
     
     it 'should delete the specified test database' do

@@ -26,12 +26,12 @@ describe CouchRestRails::Database do
     
     it 'should create a folder to store database views' do
       res = CouchRestRails::Database.create('foo')
-      File.exist?(File.join(RAILS_ROOT, CouchRestRails.views_path, 'foo', 'views')).should be_true
+      File.exist?(File.join(Rails.root, CouchRestRails.views_path, 'foo', 'views')).should be_true
     end
     
     it 'should create a folder to store lucene design docs if Lucene is enabled' do
       res = CouchRestRails::Database.create('foo')
-      File.exist?(File.join(RAILS_ROOT, CouchRestRails.lucene_path, 'foo', 'lucene')).should be_true
+      File.exist?(File.join(Rails.root, CouchRestRails.lucene_path, 'foo', 'lucene')).should be_true
     end
     
     it 'should create all databases as defined in CouchRestRails::Document models when no argument is specified' do
@@ -52,7 +52,7 @@ describe CouchRestRails::Database do
       res = CouchRestRails::Database.create('foobar')
       res.should =~ /no CouchRestRails::Document models using/
       CouchRestRails::Database.delete('foobar')
-      FileUtils.rm_rf(File.join(RAILS_ROOT, CouchRestRails.views_path, 'foobar'))
+      FileUtils.rm_rf(File.join(Rails.root, CouchRestRails.views_path, 'foobar'))
     end
 
   end

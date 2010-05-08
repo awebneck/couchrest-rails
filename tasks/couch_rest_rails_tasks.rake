@@ -6,7 +6,7 @@ namespace :couchdb do
     puts CouchRestRails::Database.create(args.database, args.opts)
   end
 
-  desc "Deletes a CouchDB database for the current RAILS_ENV (use no database argument to use all databases defined in CouchRestRails::Document models)"
+  desc "Deletes a CouchDB database for the current Rails.env (use no database argument to use all databases defined in CouchRestRails::Document models)"
   task :delete, :database, :needs => :environment do |t, args|
     args.with_defaults(:database => "*", :opts => {})
     puts CouchRestRails::Database.delete(args.database, args.opts)

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-require 'rails_generator'
-require 'rails_generator/scripts/generate'
+# require 'rails_generator'
+# require 'rails_generator/scripts/generate'
 
 describe 'CouchRestRails' do
   

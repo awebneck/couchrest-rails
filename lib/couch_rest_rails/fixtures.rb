@@ -17,7 +17,7 @@ module CouchRestRails
       
       CouchRestRails.process_database_method(database_name) do |db, response|
        
-        unless File.exist?(File.join(RAILS_ROOT, CouchRestRails.fixtures_path, "#{db}.yml"))
+        unless File.exist?(File.join(Rails.root, CouchRestRails.fixtures_path, "#{db}.yml"))
           response << "Fixtures file (#{File.join(CouchRestRails.fixtures_path, "#{db}.yml")}) does not exist"
           next
         end
@@ -31,7 +31,7 @@ module CouchRestRails
         
         db_conn = CouchRest.database(full_db_path)
         fixture_files = []
-        Dir.glob(File.join(RAILS_ROOT, CouchRestRails.fixtures_path, "#{db}.yml")).each do |file|
+        Dir.glob(File.join(Rails.root, CouchRestRails.fixtures_path, "#{db}.yml")).each do |file|
           db_conn.bulk_save(YAML::load(ERB.new(IO.read(file)).result).map {|f| f[1]})
           fixture_files << File.basename(file)
         end
@@ -56,7 +56,7 @@ module CouchRestRails
           next
         end
         
-        fixtures_file = File.join(RAILS_ROOT, CouchRestRails.fixtures_path, "#{db}.yml")
+        fixtures_file = File.join(Rails.root, CouchRestRails.fixtures_path, "#{db}.yml")
         if File.exist?(fixtures_file)
           response << "Overwriting fixtures in #{File.join(CouchRestRails.fixtures_path, "#{db}.yml")}"
         end

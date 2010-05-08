@@ -7,7 +7,7 @@ module CouchRestRails
 
     def setup(database_name = '*', opts = {})
       res = ''
-      ENV['RAILS_ENV'] = CouchRestRails.test_environment
+      ENV['Rails.env'] = CouchRestRails.test_environment
       unless opts[:skip_if_fixtures_loaded] && fixtures_loaded.include?(database_name)
         res += CouchRestRails::Database.delete(database_name, opts)
         res += CouchRestRails::Database.create(database_name, opts)
@@ -24,7 +24,7 @@ module CouchRestRails
     end
 
     def teardown(database_name = "*")
-      ENV['RAILS_ENV'] = CouchRestRails.test_environment
+      ENV['Rails.env'] = CouchRestRails.test_environment
       CouchRestRails::Database.delete(database_name)
       fixtures_loaded.delete(database_name)
     end
