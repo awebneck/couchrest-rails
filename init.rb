@@ -1,6 +1,6 @@
 require 'couch_rest_rails'
 
-%w(couchrest json validatable).each do |g|
+%w(yajl/json_gem couchrest).each do |g|
   begin
     require g
   rescue LoadError

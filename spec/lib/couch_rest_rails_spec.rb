@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-# require 'rails_generator'
-# require 'rails_generator/scripts/generate'
+require 'rails/generators'
 
 describe 'CouchRestRails' do
   
@@ -21,8 +20,7 @@ describe 'CouchRestRails' do
     end
     
     it "should generate the necessary files in the host application" do
-      Rails::Generator::Scripts::Generate.new.run(
-        ['couchrest_rails'], :destination => @fake_rails_root)
+      Rails::Generators.invoke 'couch_rest_rails', [], :destination_root => @fake_rails_root
       Dir.glob(File.join(@fake_rails_root, "**", "*.*")).map {|f| File.basename(f) }.sort.should == 
         ['couchdb.yml', 'couchdb.rb'].sort
     end

@@ -1,5 +1,3 @@
-require 'json'
-
 module CouchRestRails
   module Lucene
     extend self

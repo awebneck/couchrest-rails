@@ -8,6 +8,8 @@ describe CouchRestRails::Document do
     self
   end
   
+  it_should_behave_like AnActiveModel
+  
   before :each do
     @doc = test_class.new
   end

@@ -1,6 +1,6 @@
 # CouchRest-Rails
 
-A Rails plugin for connecting to and working with a [CouchDB](http://couchdb.apache.org) document-oriented database via the [CouchRest](http://github.com/jchris/couchrest) RESTful CouchDB client.
+A Rails 3.0 plugin for connecting to and working with a [CouchDB](http://couchdb.apache.org) document-oriented database via the [CouchRest](http://github.com/jchris/couchrest) RESTful CouchDB client.
 
 Specifically, this plugin provides the following utilities:
 
@@ -17,12 +17,11 @@ This plugin does not interfere with the traditional relational database backend,
 This plugin assumes some knowledge of CouchDB and its important differences from conventional Rails data storage (RDBMS) options.  See [the CouchDB site](http://couchdb.apache.org) for more information.  
 
 ## Requirements
-
+* [Rails gem](http://github.com/rails/rails) (use the 3.0 beta)
 * [CouchRest gem](http://github.com/jchris/couchrest)
-* [Validatable gem](http://validatable.rubyforge.org/)
-* [JSON gem](http://json.rubyforge.com)
-* [RSpec](http://github.com/dchelimsky/rspec) BDD framework (optional - for running plugin specs)
-* [RSpec-Rails](http://github.com/dchelimsky/rspec-rails) library (optional - for running plugin specs)
+* [YAJL gem](http://json.rubyforge.com)
+* [RSpec](http://github.com/dchelimsky/rspec) BDD framework (optional - for running plugin specs - use 2.0 beta)
+* [RSpec-Rails](http://github.com/dchelimsky/rspec-rails) library (optional - for running plugin specs - use 2.0 beta)
 * Lucene (optional) for full text searching of CouchDB documents
 
 ## Installation

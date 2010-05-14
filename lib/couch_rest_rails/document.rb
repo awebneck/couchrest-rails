@@ -1,7 +1,7 @@
 module CouchRestRails
   class Document < CouchRest::ExtendedDocument
 
-    include Validatable
+    include ActiveModel::Validations
 
     def self.use_database(db)
       db = [COUCHDB_CONFIG[:db_prefix], db.to_s, COUCHDB_CONFIG[:db_suffix]].join
@@ -12,5 +12,16 @@ module CouchRestRails
       database.name.sub(/^#{COUCHDB_CONFIG[:db_prefix]}/, '').sub(/#{COUCHDB_CONFIG[:db_suffix]}$/, '')
     end
     
+    def to_model
+      self
+    end
+    
+    def to_key
+      id
+    end
+    
+    def persisted?
+      !new?
+    end
   end
 end
